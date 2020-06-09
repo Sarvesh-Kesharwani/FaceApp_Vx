@@ -1,0 +1,57 @@
+NavigationLayout:
+    lbl: print_status
+    MDNavigationDrawer:
+        NavigationDrawerIconButton:
+            icon: 'camera'
+            text: "Register"
+            on_release:
+                screen_manager.current = "Register"
+                toolbar.title = "Register"
+        NavigationDrawerIconButton:
+            text: "Users"
+            on_release:
+                screen_manager.current = "Users"
+                toolbar.title = "Users"
+        NavigationDrawerIconButton:
+            text: "Live View"
+            on_release:
+                screen_manager.current = "Live"
+                toolbar.title = "Live View"
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        Toolbar:
+            id: toolbar
+            title: "Live"
+            md_bg_color: app.theme_cls.primary_color
+            left_action_items: [['menu', lambda x: root.toggle_nav_drawer()]]
+        ScreenManager:
+            id: screen_manager
+
+            Screen:
+                name: "Live"
+                MDLabel:
+                    id: print_status
+                    text: "Waiting for button to be pressed!"
+                    halign: "center"
+                Button:
+                    text: 'Connect'
+                    halign: "center"
+                    on_press: root.do_action()
+            Screen:
+                name: "Register"
+                MDLabel:
+                    text: "Register"
+                    halign: "center"
+            Screen:
+                name: "Users"
+                MDLabel:
+                    text: "Users"
+                    halign: "center"
+
+
+
+
+
+
